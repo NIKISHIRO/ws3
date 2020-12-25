@@ -1,4 +1,3 @@
-import './App.css';
 import React from 'react';
 import { HOST } from "./api/api";
 import RouterOutlet from "./components/RouterOutlet";

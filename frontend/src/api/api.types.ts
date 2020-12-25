@@ -9,23 +9,23 @@ export type TAirportItemData = {
   iata: string;
 };
 
-export type TAirportFlightsResponse = {
-  data: {
-    flights_to: TFlightData[];
-    flights_back: TFlightData[];
-  };
-};
-
 export type TAirportFlightsQuery = {
   from: string;
   to: string;
-  date1: Date;
-  date2: Date;
+  date1: string;
+  date2: string;
   passengers: number;
 };
 
+export type TAirportFlightsResponse = {
+  data: {
+    flights_to: TFlightData[];
+    flights_back?: TFlightData[];
+  };
+};
+
 export type TFlightData =  {
-  flight_id: 2;
+  flight_id: number;
   flight_code: string;
   from: TFlightPlace;
   to: TFlightPlace;
@@ -37,7 +37,7 @@ export type TFlightPlace = {
   city: string;
   airport: string;
   iata: string;
-  date: Date;
+  date: string;
   time: string;
 };
 

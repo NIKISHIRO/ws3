@@ -25,7 +25,36 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="60121ca9-90ac-4207-8100-dc0166bbd395" name="Default Changelist" comment="" />
+    <list default="true" id="60121ca9-90ac-4207-8100-dc0166bbd395" name="Default Changelist" comment="add frontend">
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Home/Booking/Booking.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Home/Booking/Booking.types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Home/Card.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Home/Flights/Flights.container.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Home/Flights/Flights.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Home/Flights/Flights.types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/api/api.data.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/api/api.types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Home/Booking/Booking.container.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/api/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/api/api.types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/api.types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/RouterOutlet.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/RouterOutlet.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Home/Home.container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Home/Home.container.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Home/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Home/Home.types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Home/Home.types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/server/yarn.lock" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,8 +72,21 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\Users\nikis\OneDrive\Рабочий стол\proj\frontend\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\nikis\OneDrive\Рабочий стол\proj\frontend\src\pages\Home\Flights" />
+      <recent name="C:\Users\nikis\OneDrive\Рабочий стол\proj\frontend\src\pages\Home" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -54,8 +96,26 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1607357700930</updated>
-      <workItem from="1607357702030" duration="175000" />
+      <workItem from="1607357702030" duration="5260000" />
+      <workItem from="1607531096408" duration="17000" />
+      <workItem from="1607861747391" duration="9021000" />
+      <workItem from="1607963714175" duration="3943000" />
+      <workItem from="1608043375041" duration="4612000" />
+      <workItem from="1608469499220" duration="4199000" />
+      <workItem from="1608482613596" duration="5229000" />
+      <workItem from="1608570764858" duration="2890000" />
+      <workItem from="1608660119328" duration="3201000" />
+      <workItem from="1608836859126" duration="4514000" />
+      <workItem from="1608871327056" duration="11853000" />
     </task>
+    <task id="LOCAL-00001" summary="add frontend">
+      <created>1607358069368</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1607358069368</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -64,6 +124,8 @@
       <list>
         <option value="$PROJECT_DIR$/server/index.js" />
         <option value="$PROJECT_DIR$/server/api/api.js" />
+        <option value="$PROJECT_DIR$/server/api/api.types.js" />
+        <option value="$PROJECT_DIR$/server/api/api.data.js" />
       </list>
     </option>
   </component>
@@ -89,11 +151,48 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add frontend" />
+    <option name="LAST_COMMIT_MESSAGE" value="add frontend" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="586" y="198" key="#Inspections" timestamp="1608483515889">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="586" y="198" key="#Inspections/0.0.1920.1040@0.0.1920.1040" timestamp="1608483515889" />
+    <state x="732" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1608875534686">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="732" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1608875534686" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1607357833730">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607357833730" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1607531116637">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1607531116637" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1608879538502">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1608879538502" />
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1608046592203">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1608046592203" />
+    <state x="667" y="253" width="585" height="534" key="find.popup" timestamp="1608662046194">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="667" y="253" width="585" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1608662046194" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1608878655349">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1608878655349" />
+    <state x="623" y="225" key="search.everywhere.popup" timestamp="1608570847178">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1608570847178" />
   </component>
 </project>

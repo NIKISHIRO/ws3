@@ -1,0 +1,1 @@
+export type TRenderView<P = any> = (props?: P) => JSX.Element | JSX.Element[];
