@@ -13,7 +13,8 @@ import {
 interface IProps {
   selectFlights: ISelectFlights;
   passengers: IPassenger[];
-  onSubmit: THandleBookingSubmit;
+  buttonDisabled: boolean;
+  onSubmit: (e: React.FormEvent, passengers: IPassenger[]) => void;
   onChangePassenger: THandleChangePassenger
   onAddPassenger: THandleAddPassenger;
   onDeletePassenger: THandleDeletePassenger;
@@ -34,6 +35,7 @@ const Booking = (props: IProps & WithStyles) => {
   const {
     passengers,
     classes,
+    buttonDisabled,
     onSubmit,
     onAddPassenger,
     onDeletePassenger,
@@ -98,7 +100,7 @@ const Booking = (props: IProps & WithStyles) => {
       <form
         noValidate
         autoComplete="off"
-        onSubmit={onSubmit}
+        onSubmit={(e) => onSubmit(e, passengers)}
       >
         <div>
           <Button
@@ -109,12 +111,17 @@ const Booking = (props: IProps & WithStyles) => {
           </Button>
         </div>
         {renderPassengers(passengers)}
-        <Button
-          color="primary"
-          type="submit"
-        >
-          Confirm
-        </Button>
+        <br />
+        <br />
+        <div>
+          <Button
+            disabled={buttonDisabled}
+            color="primary"
+            type="submit"
+          >
+            Confirm
+          </Button>
+        </div>
       </form>
     </div>
   );

@@ -1,7 +1,7 @@
 import React from "react";
 import Home from "./Home";
-import {requestAirportData, requestFlightsData} from "../../api/api";
-import {TAirportFlightsResponse, TAirportItemData} from "../../api/api.types";
+import {requestAirportData, requestBookingData, requestFlightsData} from "../../api/api";
+import {TAirportFlightsResponse, TAirportItemData, TFlightData} from "../../api/api.types";
 import {
   IAirportSelect,
   IAirportSelectFormat,
@@ -14,6 +14,7 @@ import {
 } from "./Home.types";
 import moment from "moment";
 import {ISelectFlights, THandleFlightsSubmit} from "./Flights/Flights.types";
+import {IPassenger, THandleBookingSubmit} from "./Booking/Booking.types";
 
 
 interface IState {
@@ -21,6 +22,7 @@ interface IState {
   flights: TAirportFlightsResponse;
   form: TForm;
   selectFlights: ISelectFlights;
+  passengers: IPassenger[];
   isSubmitted: boolean;
   isModalOpen: boolean;
 }
@@ -47,6 +49,7 @@ const HomeContainer = () => {
         flights_to: [],
       },
     },
+    passengers: [],
     form: {
       departing: { value: defaultDate, label: 'Туда', hasDisableButton: false, checkboxValue: true },
       returning: { value: defaultDate, label: 'Обратно', hasDisableButton: true, checkboxValue: false },
@@ -181,6 +184,30 @@ const HomeContainer = () => {
     });
   };
 
+  const handleBookingSubmit: THandleBookingSubmit = async (passengers) => {
+    const {
+      selectFlights: {
+        flights_back,
+        flights_to,
+      },
+    } = state;
+
+    setState({ ...state, passengers });
+
+    const flights = [flights_back, flights_to]
+      .reduce<TFlightData[]>((acc, flight) => {
+        if (!flight) return acc;
+
+        return [...acc, flight];
+      }, []);
+
+    const bookingResponse = await requestBookingData({ flights, passengers });
+    
+    localStorage.setItem('bookingCode', bookingResponse.data.code);
+
+    window.location.href = '/booking';
+  };
+
   const handleModalClose: TModalClose = () => {
     setState({
       ...state,
@@ -200,6 +227,7 @@ const HomeContainer = () => {
       onSelect={handleSelect}
       onSubmit={handleSubmit}
       onFlightsSubmit={handleFlightsSubmit}
+      onBookingSubmit={handleBookingSubmit}
       onCheckboxChange={handleCheckboxChange}
       onModalClose={handleModalClose}
     />

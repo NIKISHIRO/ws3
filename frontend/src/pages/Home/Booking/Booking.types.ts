@@ -18,4 +18,4 @@ export type THandleChangePassenger = (
   value: string,
 ) => void;
 
-export type THandleBookingSubmit = (e: React.FormEvent) => void;
+export type THandleBookingSubmit = (passengers: IPassenger[]) => void;

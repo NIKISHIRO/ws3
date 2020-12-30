@@ -9,15 +9,21 @@ import {
   THandleDeletePassenger
 } from "./Booking.types";
 import moment from "moment";
+import {TModalClose} from "../Home.types";
 
 
 interface IProps {
   selectFlights: ISelectFlights;
+  onModalClose: TModalClose;
+  onSubmit: THandleBookingSubmit;
 }
 
 interface IState {
   passengers: IPassenger[];
+  buttonDisabled: boolean;
 }
+
+type THandleSubmit = (e: React.FormEvent, passengers: IPassenger[]) => void;
 
 const defaultDate = moment(new Date()).format("YYYY-MM-DD");
 
@@ -31,12 +37,16 @@ const defaultPassenger: IPassenger = {
 const BookingContainer = (props: IProps) => {
   const [state, setState] = React.useState<IState>({
     passengers: [{ ...defaultPassenger }],
+    buttonDisabled: false,
   });
   const {
     selectFlights,
+    onModalClose,
+    onSubmit,
   } = props;
   const {
     passengers,
+    buttonDisabled,
   } = state;
 
   const handleChangePassenger: THandleChangePassenger = (index, passengers, key, value) => {
@@ -71,21 +81,25 @@ const BookingContainer = (props: IProps) => {
 
     setState({
       ...state,
-      passengers,
+        passengers,
     });
   };
 
-  const handleSubmit: THandleBookingSubmit = (e) => {
+  const handleSubmit: THandleSubmit = (e, passengers) => {
     e.preventDefault();
 
-    console.log('handleSubmit');
+    setState({ ...state, buttonDisabled: true });
 
+    onSubmit(passengers);
+
+    onModalClose();
   };
 
   return (
     <Booking
       selectFlights={selectFlights}
       passengers={passengers}
+      buttonDisabled={buttonDisabled}
       onChangePassenger={handleChangePassenger}
       onAddPassenger={handleAddPassenger}
       onDeletePassenger={handleDeletePassenger}

@@ -17,6 +17,7 @@ import { ISelectFlights, THandleFlightsSubmit } from "./Flights/Flights.types";
 import { TRenderView } from "../../types";
 import Dialog from "@material-ui/core/Dialog";
 import BookingContainer from "./Booking/Booking.container";
+import {THandleBookingSubmit} from "./Booking/Booking.types";
 
 
 interface IProps {
@@ -30,6 +31,7 @@ interface IProps {
   onSelect: THandleSelect;
   onSubmit: THandleSubmit;
   onFlightsSubmit: THandleFlightsSubmit;
+  onBookingSubmit: THandleBookingSubmit;
   onCheckboxChange: THandleCheckboxChange;
   onModalClose: TModalClose;
 }
@@ -58,6 +60,7 @@ const Home = (props: TProps) => {
     onSelect,
     onSubmit,
     onFlightsSubmit,
+    onBookingSubmit,
     onCheckboxChange,
     onModalClose,
   } = props;
@@ -163,6 +166,8 @@ const Home = (props: TProps) => {
       >
         <BookingContainer
           selectFlights={selectFlights}
+          onModalClose={onModalClose}
+          onSubmit={onBookingSubmit}
         />
       </Dialog>
     );
