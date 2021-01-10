@@ -6,51 +6,59 @@ import {
   Link,
   BrowserRouter,
 } from "react-router-dom";
+import { Container, StyleRules, WithStyles, withStyles } from "@material-ui/core";
 import HomeContainer from "../pages/Home/Home.container";
-import { MenuItem, MenuList, StyleRules, WithStyles, withStyles } from "@material-ui/core";
-import BookingContainer from "../pages/Booking/booking.container";
-import RegisterContainer from "../pages/Home/Auth/Register/Register.container";
-import LoginContainer from "../pages/Home/Auth/Login/Login.container";
+import BookingsContainer from "../pages/Bookings/bookings.container";
+import RegisterContainer from "../pages/Auth/Register/Register.container";
+import LoginContainer from "../pages/Auth/Login/Login.container";
 import ProfileContainer from "../pages/Profile/Profile.container";
 import Logout from "./Logout";
 
 
-interface IProps {}
-
-const RouterOutlet = (props: IProps & WithStyles) => {
+const RouterOutlet = (props: WithStyles) => {
   const { classes } = props;
+  const isAuthorized = !!localStorage.getItem('token');
 
   return (
     <Router>
       <BrowserRouter basename="/">
         <div className={classes.linkContainer}>
-          <Link to="/" className={classes.link}>Home</Link>
-          <Link to="/booking" className={classes.link}>Booking</Link>
-          <Link to="/login" className={classes.link}>Login</Link>
-          <Link to="/register" className={classes.link}>Register</Link>
-          <Link to="/profile" className={classes.link}>profile</Link>
-          <Link to="/logout" className={classes.link}>Logout</Link>
+          <Link to="/" className={classes.link}>Забронировать</Link>
+          <Link to="/booking" className={classes.link}>Текущие бронирования</Link>
+          {!isAuthorized &&
+            <>
+              <Link to="/login" className={classes.link}>Авторизация</Link>
+              <Link to="/register" className={classes.link}>Регистрация</Link>
+            </>
+          }
+          {isAuthorized &&
+            <>
+              <Link to="/logout" className={classes.link}>Выход</Link>
+              <Link to="/profile" className={classes.link}>Профиль</Link>
+            </>
+          }
         </div>
-
         <Switch>
-          <Route exact path="/">
-            <HomeContainer />
-          </Route>
-          <Route exact path="/booking">
-            <BookingContainer />
-          </Route>
-          <Route exact path="/register">
-            <RegisterContainer />
-          </Route>
-          <Route exact path="/login">
-            <LoginContainer />
-          </Route>
-          <Route exact path="/profile">
-            <ProfileContainer />
-          </Route>
-          <Route exact path="/logout">
-            <Logout />
-          </Route>
+          <Container>
+            <Route exact path="/">
+              <HomeContainer />
+            </Route>
+            <Route exact path="/booking">
+              <BookingsContainer />
+            </Route>
+            <Route exact path="/register">
+              <RegisterContainer />
+            </Route>
+            <Route exact path="/login">
+              <LoginContainer />
+            </Route>
+            <Route exact path="/profile">
+              <ProfileContainer />
+            </Route>
+            <Route exact path="/logout">
+              <Logout />
+            </Route>
+          </Container>
         </Switch>
       </BrowserRouter>
     </Router>

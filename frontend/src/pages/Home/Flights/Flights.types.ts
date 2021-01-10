@@ -6,4 +6,3 @@ export interface ISelectFlights {
 }
 
 export type THandleFlightsSubmit = (value: ISelectFlights) => void;
-

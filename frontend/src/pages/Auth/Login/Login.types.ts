@@ -1,4 +1,4 @@
-import { ILoginRequest } from "../../../../api/api.types";
+import { ILoginRequest } from "../../../api/api.types";
 
 export interface ILoginForm {
   phone: string;

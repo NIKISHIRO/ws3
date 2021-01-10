@@ -214,7 +214,7 @@ app.get(`${HOST}/login`, (req: Request<any, any, any, ILoginRequest>, res: Respo
     query: { phone, password },
   } = req;
 
-  if(!STORAGE.users[phone]) {
+  if (!STORAGE.users[phone] || STORAGE.users[phone].data.password !== password) {
     return res.sendStatus(422);
   }
 

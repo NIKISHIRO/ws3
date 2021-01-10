@@ -102,7 +102,7 @@ app.get(HOST + "/register", function (req, res) {
 });
 app.get(HOST + "/login", function (req, res) {
     var _a = req.query, phone = _a.phone, password = _a.password;
-    if (!STORAGE.users[phone]) {
+    if (!STORAGE.users[phone] || STORAGE.users[phone].data.password !== password) {
         return res.sendStatus(422);
     }
     var token = shortid_1.default.generate();

@@ -1,4 +1,4 @@
-import {IRegisterRequest} from "../../../../api/api.types";
+import {IRegisterRequest} from "../../../api/api.types";
 
 export interface IRegisterForm {
   first_name: string;

@@ -118,9 +118,17 @@ const Home = (props: TProps) => {
         className={classes.form}
         onSubmit={(e) => onSubmit(e, data)}
       >
-        <div>{renderInput('date', 'departing', form)}</div>
-        <div>{renderInput('date', 'returning', form)}</div>
-        <div>{renderInput('number', 'passengers', form)}</div>
+        <div>
+          {renderSelect('fromWhere', airports)}
+        </div>
+        <br />
+        <div>
+          {renderSelect('toWhere', airports)}
+        </div>
+        <br />
+        <div>{renderInput('date', 'departing', form)}</div><br />
+        <div>{renderInput('date', 'returning', form)}</div><br />
+        <div>{renderInput('number', 'passengers', form)}</div><br />
         <Button type="submit" className={classes.submitButton}>Отправить</Button>
       </form>
     );
@@ -176,12 +184,6 @@ const Home = (props: TProps) => {
   return (
     <div className={classes.airport}>
       <div className={classes.root}>
-        <div>
-          {renderSelect('fromWhere', airports)}
-        </div>
-        <div>
-          {renderSelect('toWhere', airports)}
-        </div>
         <div>
           {renderForm({ airports, form })}
         </div>

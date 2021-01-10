@@ -1,8 +1,7 @@
 import React from "react";
-import {IBookingSuccess, TAirportFlightsResponse, TBookingPassenger, TFlightData} from "../../api/api.types";
-import {Card, CardContent, StyleRules, Typography, WithStyles, withStyles} from "@material-ui/core";
 import moment from "moment";
-import classNames from "classnames";
+import { Card, CardContent, StyleRules, Typography, WithStyles, withStyles } from "@material-ui/core";
+import { IBookingSuccess, TBookingPassenger, TFlightData } from "../../api/api.types";
 
 
 interface IProps {
@@ -11,19 +10,10 @@ interface IProps {
 
 type TRenderFlight = (flights: TFlightData[]) => JSX.Element;
 
-const translateFields = {
-  first_name: 'Имя',
-  last_name: 'Фамилия',
-  birth_date: 'Дата рождения',
-  document_number: 'Номер документа',
-};
-
-const Booking = (props: IProps & WithStyles) => {
+const Bookings = (props: IProps & WithStyles) => {
   const {
     classes,
     booking: {
-      code,
-      cost,
       flights,
       passengers
     },
@@ -79,8 +69,8 @@ const Booking = (props: IProps & WithStyles) => {
             to,
             cost,
           } = flight;
-          const toTime = moment(to.time, timeFormat);
           const fromTime = moment(from.time, timeFormat);
+          const toTime = moment(to.time, timeFormat);
           const time = moment.utc(toTime.diff(fromTime)).format('H час(ов) mm минут');
 
           return (
@@ -95,7 +85,7 @@ const Booking = (props: IProps & WithStyles) => {
                 </CardContent>
               </Card>
             </div>
-          )
+          );
         })}
       </div>
     );
@@ -104,17 +94,16 @@ const Booking = (props: IProps & WithStyles) => {
   return (
     <div>
       <div>
-        <h1>Бронирование</h1>
+        <h1>Сейчас забронировано:</h1>
       </div>
-
       <div>
         <b>Пассажиры({passengers.length}):</b>
-        <br/>
+        <br />
         {passengers.map(renderPassenger)}
       </div>
       <div>
         <b>Рейсы({flights.length}):</b>
-        <br/>
+        <br />
         {renderFlight(flights)}
       </div>
     </div>
@@ -136,4 +125,4 @@ const styles: StyleRules = {
   },
 };
 
-export default withStyles(styles)(Booking);
+export default withStyles(styles)(Bookings);

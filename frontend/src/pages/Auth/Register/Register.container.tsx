@@ -1,19 +1,23 @@
 import React from "react";
-import Login from "./Login";
-import { requestLogin } from "../../../../api/api";
-import { ILoginForm, THandleChange, THandleSubmit } from "./Login.types";
+import Register from "./Register";
+import {IRegisterForm, THandleChange, THandleSubmit} from "./Register.types";
+import {requestRegister} from "../../../api/api";
+import {IRegisterRequest} from "../../../api/api.types";
 // @ts-ignore
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 
 
 interface IState {
-  form: ILoginForm;
+  form: IRegisterForm;
 }
 
-const LoginContainer = () => {
+const RegisterContainer = () => {
   const [state, setState] = React.useState<IState>({
     form: {
+      first_name: '',
+      last_name: '',
       phone: '',
+      document_number: '',
       password: '',
     },
   });
@@ -33,23 +37,21 @@ const LoginContainer = () => {
 
   const handleSubmit: THandleSubmit = async (params) => {
     try {
-      const response = await requestLogin(params);
-      const { token } = response.data;
+      await requestRegister(params);
 
-      if (!token) return;
-
-      localStorage.setItem('token', token);
-
-      window.location.href = '/profile';
+      NotificationManager.success('Вы успешно зарегистрированы.');
+      setTimeout(() => {
+        window.location.href = '/login';
+      }, 1000);
     } catch (e) {
-      NotificationManager.error(`Не верный телефон или пароль`);
+      NotificationManager.error('Телефон уже занят.');
     }
   };
 
   return (
     <>
       <NotificationContainer />
-      <Login
+      <Register
         form={form}
         onChange={handleChange}
         onSubmit={handleSubmit}
@@ -58,4 +60,4 @@ const LoginContainer = () => {
   );
 };
 
-export default LoginContainer;
+export default RegisterContainer;

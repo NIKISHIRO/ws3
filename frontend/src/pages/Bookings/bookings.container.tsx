@@ -1,9 +1,9 @@
 import React from "react";
-import Booking from "./booking";
-import { requestBookingsByCode } from "../../api/api";
 // @ts-ignore
 import { NotificationContainer, NotificationManager } from 'react-notifications';
-import {IBookingSuccess, TBookingResponse} from "../../api/api.types";
+import Booking from "./bookings";
+import { requestBookingsByCode } from "../../api/api";
+import { IBookingSuccess } from "../../api/api.types";
 
 
 interface IState {
@@ -11,7 +11,7 @@ interface IState {
   booking: IBookingSuccess | null;
 }
 
-const BookingContainer = () => {
+const BookingsContainer = () => {
   const [state, setState] = React.useState<IState>({
     hasBookedFlight: false,
     booking: null,
@@ -23,12 +23,11 @@ const BookingContainer = () => {
 
   React.useEffect(() => {
     const code = localStorage.getItem('bookingCode') || '';
-    console.log('code', code);
 
     setState({
       ...state,
       hasBookedFlight: !!code,
-    })
+    });
 
     setBookings(code);
   }, []);
@@ -56,7 +55,9 @@ const BookingContainer = () => {
   return (
     <div>
       <NotificationContainer />
-      {!hasBookedFlight && <b>У вас нет забронированных рейсов. Вы будете переадрисованны через 3 сек.</b>}
+      {!hasBookedFlight &&
+        <b>У вас нет забронированных рейсов. <br /> Вы будете переадрисованны на страницу бронирования через 3 сек.</b>
+      }
       {booking &&
         <Booking
           booking={booking}
@@ -66,4 +67,4 @@ const BookingContainer = () => {
   );
 }
 
-export default BookingContainer;
+export default BookingsContainer;
