@@ -9,23 +9,23 @@ export type TAirportItemData = {
   iata: string;
 };
 
-export type TAirportFlightsResponse = {
-  data: {
-    flights_to: TFlightData[];
-    flights_back: TFlightData[];
-  };
-};
-
 export type TAirportFlightsQuery = {
   from: string;
   to: string;
-  date1: Date;
-  date2: Date;
+  date1: string;
+  date2: string;
   passengers: number;
 };
 
+export type TAirportFlightsResponse = {
+  data: {
+    flights_to: TFlightData[];
+    flights_back?: TFlightData[];
+  };
+};
+
 export type TFlightData =  {
-  flight_id: 2;
+  flight_id: number;
   flight_code: string;
   from: TFlightPlace;
   to: TFlightPlace;
@@ -37,7 +37,7 @@ export type TFlightPlace = {
   city: string;
   airport: string;
   iata: string;
-  date: Date;
+  date: string;
   time: string;
 };
 
@@ -52,21 +52,20 @@ export type TFlightResponseError = {
 };
 
 export type TBookingRequest = {
-  flight_from: TBookingFlightPlace;
-  flight_back: TBookingFlightPlace;
+  flights: TFlightData[];
   passengers: TBookingPassenger[];
 };
 
 export type TBookingPassenger = {
-  birth_date: Date;
+  birth_date: string;
   first_name: string;
   last_name: string;
-  document_number: number;
+  document_number: string;
 };
 
 export type TBookingFlightPlace = {
   id: number;
-  date: Date;
+  date: string;
 };
 
 export type TBookingInfoResponse = {
@@ -82,8 +81,47 @@ export type TBookingInfoPassenger = {
   id: number;
   first_name: string;
   last_name: string;
-  birth_date: Date;
+  birth_date: string;
   document_number: number;
   place_from: string | null;
   place_back: string | null;
 };
+
+// ---
+
+export interface IBookingSuccess {
+  code: string;
+  cost: number;
+  flights: TFlightData[];
+  passengers: TBookingPassenger[];
+}
+
+export interface IBookingError {
+  error: {
+    code: 422;
+    message: 'Validation error';
+    errors: string[];
+  },
+}
+
+export type TBookingResponse = IBookingSuccess | IBookingError;
+
+export interface IRegisterRequest {
+  first_name: string;
+  last_name: string;
+  phone: string;
+  document_number: string;
+  password: string;
+}
+
+export interface ILoginRequest {
+  phone: string;
+  password: string;
+}
+
+export interface IProfileRequest {
+  first_name: string;
+  last_name: string;
+  phone: string;
+  document_number: string;
+}
